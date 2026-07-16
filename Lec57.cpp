@@ -55,7 +55,20 @@ return;
   }
 
   void pop_back(){
-    
+    Node* temp = head;
+    if(head == NULL){
+      cout<<"LL is empty\n";
+      return;
+    }else{
+      while(temp->next != tail){ // agar tail nhi diya hua ho question me to use krenege(temp->next->next == NULL)
+
+        temp = temp->next;
+      }
+      temp->next = NULL;
+      delete tail;
+      tail = temp;
+    }
+
   }
   void print_ll(){
     Node* temp;
@@ -74,6 +87,9 @@ ll.push_front(2);
 ll.push_back(5);
 ll.push_back(6);
 ll.push_back(7);
+
+ll.pop_back();
+ll.pop_back();
 ll.print_ll();
 
 
