@@ -86,11 +86,29 @@ return;
     Node* temp = head;
     for (int i = 0; i < pos-1; i++)
     {
+      if(temp == NULL){
+        cout<<"Invalid position\n";
+      }
       temp = temp->next;
     }
     newNode->next = temp->next;
     temp->next = newNode;
     
+  }
+
+  //  search function in linkedlist
+
+  int Search(int key){
+Node* temp = head;
+int idx = 0;
+while(temp != NULL){
+if(temp->data == key){
+  return idx;
+}
+temp = temp->next;
+idx++;
+}
+return -1;
   }
   void print_ll(){
     Node* temp;
@@ -113,6 +131,7 @@ ll.push_back(7);
 ll.pop_back();
 ll.pop_back();
 ll.Insert(10, 3);
+cout<<ll.Search(4)<<endl;
 ll.print_ll();
 
 
