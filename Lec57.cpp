@@ -70,6 +70,28 @@ return;
     }
 
   }
+
+  // Insertion at any index of linkedlist
+
+  void Insert(int val, int pos){
+    if(pos<0){
+      cout<<"Invalid Position "<<endl;
+      return;
+    }
+    if(pos==0){
+      push_front(val);
+      return;
+    }
+    Node* newNode = new Node(val);
+    Node* temp = head;
+    for (int i = 0; i < pos-1; i++)
+    {
+      temp = temp->next;
+    }
+    newNode->next = temp->next;
+    temp->next = newNode;
+    
+  }
   void print_ll(){
     Node* temp;
     temp = head;
@@ -90,6 +112,7 @@ ll.push_back(7);
 
 ll.pop_back();
 ll.pop_back();
+ll.Insert(10, 3);
 ll.print_ll();
 
 
